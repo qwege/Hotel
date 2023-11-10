@@ -1,5 +1,5 @@
 # Hotel
-Hotel Reservation  (In progress)
+Hotel Reservation  (Project in progress)
 
 ##Tech
 
@@ -14,4 +14,5 @@ Hotel Reservation  (In progress)
 **UI** RestAPI
 
 React starting from Hotel\src\main\java\Hotel\Reservation\React with command
+
 `` npm start  ``
