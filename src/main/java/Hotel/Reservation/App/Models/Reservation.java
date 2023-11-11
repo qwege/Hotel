@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -23,5 +25,8 @@ public class Reservation {
     private Person person;
 
     private int prize;
+
+    @Enumerated(EnumType.STRING)
+    private StatusReservation statusReservation;
 
 }
