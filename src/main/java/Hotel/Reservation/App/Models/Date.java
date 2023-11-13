@@ -1,6 +1,7 @@
 package Hotel.Reservation.App.Models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,7 +18,8 @@ import lombok.Setter;
 @Setter
 public class Date {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "date_seq")
+    @SequenceGenerator(name="date_seq",sequenceName="date_seq", initialValue = 1)
     private long id;
 
     @ManyToOne
@@ -25,6 +27,7 @@ public class Date {
 
     private java.sql.Date date;
 
+    @JsonIgnore
     @ManyToOne (cascade = CascadeType.ALL)
     private Reservation reservation;
 }

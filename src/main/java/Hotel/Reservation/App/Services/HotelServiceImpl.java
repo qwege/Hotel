@@ -29,7 +29,7 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public boolean CreateRoom(Room room, long hotel_id, long session_id) {
+    public boolean createRoom(Room room, long hotel_id, long session_id) {
        if(!checkIsAdmin(session_id))return false;
        Hotel hotel =hotelRepository.getReferenceById(hotel_id);
        hotel.getRoom().add(room);
@@ -38,14 +38,14 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public boolean RemoveRoom(long room_id, long session_id) {
+    public boolean removeRoom(long room_id, long session_id) {
         if(!checkIsAdmin(session_id))return false;
         roomRepository.deleteById(room_id);
         return true;
     }
 
     @Override
-    public boolean UpdateRoom(long room_id, Room room, long session_id) {
+    public boolean updateRoom(long room_id, Room room, long session_id) {
         if(!checkIsAdmin(session_id))return false;
         Room roomOld = roomRepository.getReferenceById(room_id);
         roomOld.setCity(room.getCity());
@@ -67,21 +67,21 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public boolean CreateHotel(Hotel hotel, long session_id) {
+    public boolean createHotel(Hotel hotel, long session_id) {
         if(!checkIsAdmin(session_id))return false;
         hotelRepository.save(hotel);
         return true;
     }
 
     @Override
-    public boolean RemoveHotel(long hotel_id, long session_id) {
+    public boolean removeHotel(long hotel_id, long session_id) {
         if(!checkIsAdmin(session_id))return false;
         hotelRepository.deleteById(hotel_id);
         return true;
     }
 
     @Override
-    public boolean UpdateHotel(long hotel_id, Hotel hotel, long session_id) {
+    public boolean updateHotel(long hotel_id, Hotel hotel, long session_id) {
         if(!checkIsAdmin(session_id))return false;
         Hotel hotelOld = hotelRepository.getReferenceById(hotel_id);
         hotelOld.setName(hotel.getName());

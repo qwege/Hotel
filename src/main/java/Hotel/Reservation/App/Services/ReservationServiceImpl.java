@@ -3,7 +3,6 @@ package Hotel.Reservation.App.Services;
 import Hotel.Reservation.App.Models.*;
 import Hotel.Reservation.App.Repositories.DateRepository;
 import Hotel.Reservation.App.Repositories.ReservationRepository;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -119,4 +118,5 @@ public class ReservationServiceImpl implements ReservationService{
     private boolean checkIsAdmin (long session_id){
         return LoggingService.getPermissions(session_id) == TypeUser.ADMIN;
     }
+
 }

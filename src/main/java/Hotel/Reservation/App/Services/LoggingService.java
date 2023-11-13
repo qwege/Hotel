@@ -5,16 +5,17 @@ import Hotel.Reservation.App.Models.TypeUser;
 
 import java.util.ArrayList;
 
+
 public class LoggingService {
     private static ArrayList<LoggingData> loggingData = new ArrayList<>();
 
-    protected  static long  getPersonIdOfSession(long session_id){
+    protected   static long  getPersonIdOfSession(long session_id){
         for(LoggingData data: loggingData){
             if(data.session_id == session_id) return data.person.getId();
         }
         throw new RuntimeException("Person can`t be find for session "+ session_id);
     }
-    protected static boolean logIn(long session_id, Person person_id){
+    public static boolean logIn(long session_id, Person person_id){
         loggingData.add(new LoggingData(session_id,person_id));
         return true;
     }
@@ -25,7 +26,7 @@ public class LoggingService {
         }
         throw new RuntimeException("Person can`t be find for session "+ session_id);
     }
-    protected static boolean logOut(long session_id){
+    public static boolean logOut(long session_id){
         for(LoggingData data: loggingData){
             if(data.session_id == session_id)
                 loggingData.remove(data);
@@ -33,6 +34,7 @@ public class LoggingService {
         }
         return false;
     }
+
 }
 class LoggingData{
     long session_id;

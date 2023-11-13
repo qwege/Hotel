@@ -15,7 +15,8 @@ import java.util.List;
 @Setter
 public class Hotel {
     @Id
-    @GeneratedValue (strategy = GenerationType.SEQUENCE)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE,generator = "hotel_seq")
+    @SequenceGenerator(name="hotel_seq",sequenceName="hotel_seq", initialValue = 6)
     private long id;
 
     private String name;
