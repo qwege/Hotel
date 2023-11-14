@@ -19,7 +19,7 @@ import lombok.Setter;
 public class Date {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "date_seq")
-    @SequenceGenerator(name="date_seq",sequenceName="date_seq", initialValue = 1)
+    @SequenceGenerator(name="date_seq",sequenceName="date_seq", initialValue = 590)
     private long id;
 
     @ManyToOne

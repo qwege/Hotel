@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface ReservationService {
 
-        List<Date> getAvaiable(Hotel hotel, Room room);
+        List<Date> getAvaiable(long hotel_id, long room_id);
         List<Reservation> getMyReservation(long session_id);
-        boolean createReservation(Room room, List<java.util.Date> dates, Person person);
+        boolean createReservation(long room_id, List<java.util.Date> dates_id, long session_id);
         List<Reservation> getReservationByStatus(StatusReservation status,long session_id);
         boolean confirmReservation(long reservation_id,long session_id);
         boolean cancelReservation(long reservation_id,long session_id);

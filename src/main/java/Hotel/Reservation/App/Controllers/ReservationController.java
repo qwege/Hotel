@@ -14,8 +14,8 @@ public class ReservationController {
     private ReservationService reservationService;
 
     @GetMapping("/avaiable")
-    public List<Date> getAvaiable(@RequestBody Hotel hotel, @RequestBody Room room) {
-        return reservationService.getAvaiable(hotel, room);
+    public List<Date> getAvaiable(@RequestParam long hotel_id, @RequestParam long room_id) {
+        return reservationService.getAvaiable(hotel_id, room_id);
     }
 
     @GetMapping("/my")
@@ -24,8 +24,8 @@ public class ReservationController {
     }
 
     @PutMapping("/create")
-    public boolean createReservation(@RequestBody Room room, @RequestParam List<java.util.Date> dates, @RequestParam Person person) {
-        return reservationService.createReservation(room, dates, person);
+    public boolean createReservation(@RequestParam long room_id, @RequestParam List<java.util.Date> dates, @RequestParam long session_id) {
+        return reservationService.createReservation(room_id, dates, session_id);
     }
 
     @GetMapping("/by_Status")

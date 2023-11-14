@@ -5,6 +5,7 @@ import Hotel.Reservation.App.Models.Room;
 import Hotel.Reservation.App.Models.TypeUser;
 import Hotel.Reservation.App.Repositories.HotelRepository;
 import Hotel.Reservation.App.Repositories.RoomRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,7 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public Room getRoom(long id) {
-       return roomRepository.getReferenceById(id);
+            return roomRepository.getReferenceById(id);
     }
 
     @Override
@@ -30,7 +31,12 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public boolean createRoom(Room room, long hotel_id, long session_id) {
-       if(!checkIsAdmin(session_id))return false;
+        try {
+            if(!checkIsAdmin(session_id))return false;
+        }catch (RuntimeException e){
+            return false;
+        }
+
        Hotel hotel =hotelRepository.getReferenceById(hotel_id);
        hotel.getRoom().add(room);
        hotelRepository.save(hotel);
@@ -88,6 +94,11 @@ public class HotelServiceImpl implements HotelService {
         return true;
     }
     private boolean checkIsAdmin (long session_id){
-       return LoggingService.getPermissions(session_id) == TypeUser.ADMIN;
+        try {
+            return LoggingService.getPermissions(session_id) == TypeUser.ADMIN;
+        }catch (RuntimeException e){
+            return false;
+        }
+
     }
 }
