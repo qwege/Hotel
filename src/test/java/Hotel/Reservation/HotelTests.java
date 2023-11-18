@@ -6,18 +6,13 @@ import Hotel.Reservation.App.Models.Hotel;
 import Hotel.Reservation.App.Models.Room;
 
 import Hotel.Reservation.App.Services.UserService;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.*;
-import org.junit.platform.commons.logging.Logger;
-import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.orm.jpa.JpaObjectRetrievalFailureException;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Supplier;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
