@@ -2,7 +2,9 @@
   text-align: center;
 }
 
-
+body{
+  background-color: blanchedalmond;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -14,6 +16,14 @@
   color: white;
 }
 
+.Page{
+  position: relative;
+  display: flex;
+  top: 6vh;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-50%);
+}
 .App-link {
   color: #61dafb;
 }

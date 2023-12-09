@@ -5,11 +5,18 @@ const Top = () =>{
 
     return (
         <div className='Top'>
-            <Link to="/" className="Text"> Main Page </Link>
-            <Link to="/User" className="Text"> User Page</Link>
-            <Link to="/Hotel" className="Text"> Hotel Page</Link>
-            <Link to="/Admin" className="Text"> Admin Page</Link>
-            <Link to="/LoginRegister" className="Text"> Login / Register</Link>
+            <Link to="/" className="Text">
+                <div className="innerText"> Main Page </div>
+            </Link>
+            <Link to="/User" className="Text">
+                <div className="innerText"> User Page </div>
+            </Link>
+            <Link to="/Admin" className="Text">
+                <div className="innerText"> Admin Page </div>
+            </Link>
+            <Link to="/LoginRegister" className="Text">
+                <div className="innerText"> Login / Register </div>
+            </Link>
         </div>
 
 
